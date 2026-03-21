@@ -6,29 +6,25 @@ import Layout from "../Layouts/layout.astro";
 ---
 
 <Layout title="Output">
-	<!-- Hero Section -->
 	<section id="hero">
 		<div class="hero-content">
 
-			<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>
+			<a href="https://hackclub.com/" class="hc-flag"><img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>
 
 			<h1 class="blue">Output</h1>
-			<!-- <p>Make a website that outputs to hardware. Control the real world from your browser.</p> -->
 			<p>Build a website that controls real-world hardware and get prizes like RPi Zero 2W, LED matrix, stickers & more!</p>
+			<a href="#about" class="hero-cta">Get Started →</a>
 		</div>
 		<div class="hero-visual">
-			<!-- Hardware background visualization here: breadboard, RPi, LED matrix, wires -->
 		</div>
 	</section>
 
-	<!-- What is Output? -->
 	<section id="about">
 		<h2 class="red">What is Output?</h2>
 		<p>Output is a You Ship We Ship where You build a website that interacts with real-world hardware. We send you the hardware to make it work.</p>
 		<p><strong>Digital → Physical:</strong> Your website sends commands to a Raspberry Pi, which controls LEDs, printers, lights, motors — anything you can imagine!</p>
 	</section>
 
-	<!-- Step-by-Step Guide -->
 	<section id="steps">
 		<h2 class="green">How to Build</h2>
 		<div class="steps">
@@ -55,7 +51,6 @@ import Layout from "../Layouts/layout.astro";
 		</div>
 	</section>
 
-	<!-- Example Project -->
 	<section id="example">
 		<h2 class="pink">See It In Action</h2>
 		<div class="example-showcase">
@@ -67,7 +62,6 @@ import Layout from "../Layouts/layout.astro";
 		</div>
 	</section>
 
-	<!-- Q&A -->
 	<section id="faq">
 		<h2 class="purple">Questions?</h2>
 		<details class="">
@@ -100,7 +94,6 @@ import Layout from "../Layouts/layout.astro";
 		<p>Ask questions in the <strong>#output</strong> channel!</p>
 	</section>
 
-	<!-- Submit -->
 	<section id="submit">
 		<h2 class="yellow">Ready? Submit Your Project</h2>
 	</section>
@@ -113,9 +106,9 @@ import Layout from "../Layouts/layout.astro";
 
 <style>
 	.prevent-select {
-		-webkit-user-select: none; /* Safari */
-		-ms-user-select: none; /* IE 10 and IE 11 */
-		user-select: none; /* Standard syntax */
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 
 	.blue {
@@ -140,5 +133,78 @@ import Layout from "../Layouts/layout.astro";
 
 	.yellow {
 		color: #FFC300;
+	}
+
+	/* ---- HERO ---- */
+	#hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		margin-bottom: 4rem;
+		margin-left: calc(-1 * max(calc((100vw - 800px) / 2), 20px));
+		margin-right: calc(-1 * max(calc((100vw - 800px) / 2), 20px));
+		padding: 4rem 2rem;
+	}
+
+	.hc-flag {
+		position: fixed;
+		top: 0;
+		left: 10px;
+		width: 180px;
+		z-index: 999;
+		border: 0;
+	}
+
+	.hc-flag img {
+		width: 100%;
+		display: block;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	#hero h1 {
+		font-size: clamp(4.5rem, 12vw, 7rem);
+	}
+
+	#hero p {
+		font-size: 1.2rem;
+		max-width: 500px;
+		margin: 0 auto 2rem;
+	}
+
+	.hero-cta {
+		display: inline-block;
+		background: #08B2E3;
+		color: #fff;
+		text-decoration: none;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+
+	.hero-cta:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(8, 178, 227, 0.3);
+	}
+
+	.hero-visual {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	@media (max-width: 600px) {
+		.hc-flag {
+			width: 100px;
+		}
 	}
 </style>
