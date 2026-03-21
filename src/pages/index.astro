@@ -1,17 +1,144 @@
 ---
+import Footer from "../components/Footer.astro";
+import Layout from "../Layouts/layout.astro";
+
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Output">
+	<!-- Hero Section -->
+	<section id="hero">
+		<div class="hero-content">
+
+			<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>
+
+			<h1 class="blue">Output</h1>
+			<!-- <p>Make a website that outputs to hardware. Control the real world from your browser.</p> -->
+			<p>Build a website that controls real-world hardware and get prizes like RPi Zero 2W, LED matrix, stickers & more!</p>
+		</div>
+		<div class="hero-visual">
+			<!-- Hardware background visualization here: breadboard, RPi, LED matrix, wires -->
+		</div>
+	</section>
+
+	<!-- What is Output? -->
+	<section id="about">
+		<h2 class="red">What is Output?</h2>
+		<p>Output is a You Ship We Ship where You build a website that interacts with real-world hardware. We send you the hardware to make it work.</p>
+		<p><strong>Digital → Physical:</strong> Your website sends commands to a Raspberry Pi, which controls LEDs, printers, lights, motors — anything you can imagine!</p>
+	</section>
+
+	<!-- Step-by-Step Guide -->
+	<section id="steps">
+		<h2 class="green">How to Build</h2>
+		<div class="steps">
+
+			<div class="step">
+				<h3>1. Plan Your Project</h3>
+				<p>What will your website control? A printer? LED matrix? Something custom?</p>
+			</div>
+
+			<div class="step">
+				<h3>2. Build Your Website</h3>
+				<p>Create a website that controls your hardware safely and let people interact with your creation from anywhere in the world.</p>
+			</div>
+
+			<div class="step">
+				<h3>3. Test & Submit</h3>
+				<p>Get it working, then submit your project for review!</p>
+			</div>
+
+			<div class="step">
+				<h3>4. Get Your Hardware</h3>
+				<p>Once approved, we'll send you a RPi Zero 2W, LED matrix, stickers, and more!</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Example Project -->
+	<section id="example">
+		<h2 class="pink">See It In Action</h2>
+		<div class="example-showcase">
+			<div class="example-project">
+				<h3>print.lukasreis.com</h3>
+				<p>Leave a message on the website → it gets printed to a physical printer!</p>
+				<p><a target="_blank" href="https://print.lukasreis.com">Try it →</a></p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Q&A -->
+	<section id="faq">
+		<h2 class="purple">Questions?</h2>
+		<details class="">
+			<summary class="prevent-select">Q: Who can participate?</summary>
+			<p>A: Anyone 13-18 years old!</p>
+		</details>
+
+		<details>
+			<summary class="prevent-select">Q: Is this free?</summary>
+			<p>A: Yes this program is being run by <a href="https://hackclub.com">Hack Club</a>, a nonprofit that makes programs by teenagers for teenagers. </p>
+		</details>
+
+		<details>
+			<summary class="prevent-select">Q: What hardware do I need to start?</summary>
+			<p>A: You just need a computer and internet. We'll send you the RPi, LED matrix, stickers, and more after your project is approved!</p>
+		</details>
+
+		<details>
+			<summary class="prevent-select">Q: What if I'm stuck?</summary>
+			<p>A: Join the Hack Club Slack and ask in the Output channel. We're here to help!</p>
+		</details>
+
+		<details>
+			<summary class="prevent-select">Q: Can I use any programming language?</summary>
+			<p>A: Yes! Any language that can communicate with your hardware works — Python, JavaScript, Go, anything</p>
+		</details>
+
+		<h3 style="margin-top: 2rem;">Need more help?</h3>
+		<p><strong>Join the Hack Club Slack:</strong> <a href="https://hackclub.enterprise.slack.com/archives/C0AMRN954BD" target="_blank">join.slack.com</a></p>
+		<p>Ask questions in the <strong>#output</strong> channel!</p>
+	</section>
+
+	<!-- Submit -->
+	<section id="submit">
+		<h2 class="yellow">Ready? Submit Your Project</h2>
+	</section>
+
+	<hr>
+
+	<Footer />
+
+</Layout>
+
+<style>
+	.prevent-select {
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none; /* Standard syntax */
+	}
+
+	.blue {
+		color: #08B2E3;
+	}
+
+	.red {
+		color: #EE6352;
+	}
+
+	.green {
+		color: #57A773;
+	}
+
+	.pink {
+		color: #FF88E7;
+	}
+
+	.purple {
+		color: #7862BA;
+	}
+
+	.yellow {
+		color: #FFC300;
+	}
+</style>
