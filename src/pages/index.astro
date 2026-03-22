@@ -7,15 +7,46 @@ import Layout from "../Layouts/layout.astro";
 
 <Layout title="Output">
 	<section id="hero">
+		<div class="hero-software">
+			<div class="software-item software-item-1">
+				<img src="/images/terminal_text.svg" alt="Terminal" class="software-icon" />
+			</div>
+			<div class="software-item software-item-2">
+				<img src="/images/vscode.svg" alt="VS Code" class="software-icon-small" />
+			</div>
+			<div class="software-item software-item-3">
+				<img src="/images/python-logo.png" alt="Python" class="software-icon-small" />
+			</div>
+		</div>
+
 		<div class="hero-content">
 
 			<a href="https://hackclub.com/" class="hc-flag"><img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>
+
+			<svg class="arrow-svg" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+				<defs>
+					<marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+						<polygon points="0 0, 10 3, 0 6" fill="#08B2E3" />
+					</marker>
+				</defs>
+				<path d="M 50 150 Q 400 30 750 150" stroke="#08B2E3" stroke-width="4" fill="none" marker-end="url(#arrowhead)" stroke-linecap="round" />
+			</svg>
 
 			<h1 class="blue">Output</h1>
 			<p>Build a website that controls real-world hardware and get prizes like RPi Zero 2W, LED matrix, stickers & more!</p>
 			<a href="#about" class="hero-cta">Get Started →</a>
 		</div>
-		<div class="hero-visual">
+
+		<div class="hero-hardware">
+			<div class="hardware-item">
+				<img src="/images/brother_dcp.png" alt="Printer" class="hardware-icon" />
+			</div>
+			<div class="hardware-item">
+				<img src="/images/zero2w.png" alt="Raspberry Pi Zero 2W" class="hardware-icon" />
+			</div>
+			<div class="hardware-item">
+				<img src="/images/led_matrix.png" alt="LED Matrix" class="hardware-icon" />
+			</div>
 		</div>
 	</section>
 
@@ -135,18 +166,121 @@ import Layout from "../Layouts/layout.astro";
 		color: #FFC300;
 	}
 
-	/* ---- HERO ---- */
 	#hero {
 		position: relative;
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
 		text-align: center;
 		margin-bottom: 4rem;
 		margin-left: calc(-1 * max(calc((100vw - 800px) / 2), 20px));
 		margin-right: calc(-1 * max(calc((100vw - 800px) / 2), 20px));
 		padding: 4rem 2rem;
+		gap: 2rem;
+	}
+
+	.hero-software {
+		flex: 1;
+		height: 100%;
+		min-height: 500px;
+	}
+
+	.hero-hardware {
+		flex: 1;
+		height: 100%;
+		min-height: 500px;
+	}
+
+	.hardware-item {
+		position: absolute;
+		transition: transform 0.3s ease;
+	}
+
+	.software-item {
+		position: absolute;
+		transition: transform 0.3s ease;
+	}
+
+	.software-item-1 {
+		top: 15%;
+		left: 3%;
+		transform: rotate(8deg);
+	}
+
+	.software-item-1:hover {
+		transform: rotate(10deg) scale(1.25);
+	}
+
+	.software-item-2 {
+		top: 55%;
+		left: 5%;
+		transform: rotate(-15deg);
+	}
+
+	.software-item-2:hover {
+		transform: rotate(-20deg) scale(1.2);
+	}
+
+	.software-item-3 {
+		bottom: 15%;
+		left: 8%;
+		transform: rotate(12deg);
+	}
+
+	.software-item-3:hover {
+		transform: rotate(15deg) scale(1.18);
+	}
+
+	.hardware-item:nth-child(1) {
+		top: 8%;
+		right: 5%;
+		transform: rotate(5deg);
+	}
+
+	.hardware-item:nth-child(1):hover {
+		transform: rotate(8deg) scale(1.2);
+	}
+
+	.hardware-item:nth-child(2) {
+		bottom: 8%;
+		right: 8%;
+		transform: rotate(-20deg);
+	}
+
+	.hardware-item:nth-child(2):hover {
+		transform: rotate(-22deg) scale(1.15);
+	}
+
+	.hardware-item:nth-child(3) {
+		top: 48%;
+		right: 3%;
+		transform: rotate(18deg);
+	}
+
+	.hardware-item:nth-child(3):hover {
+		transform: rotate(20deg) scale(1.22);
+	}
+
+	.software-icon {
+		width: 180px;
+		height: 180px;
+		object-fit: contain;
+		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+	}
+
+	.software-icon-small {
+		width: 120px;
+		height: 120px;
+		object-fit: contain;
+		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+	}
+
+	.hardware-icon {
+		width: 200px;
+		height: 200px;
+		object-fit: contain;
+		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 	}
 
 	.hc-flag {
@@ -168,6 +302,13 @@ import Layout from "../Layouts/layout.astro";
 		z-index: 1;
 	}
 
+	.arrow-svg {
+		width: 100%;
+		max-width: 900px;
+		height: 200px;
+		margin-bottom: 2rem;
+	}
+
 	#hero h1 {
 		font-size: clamp(4.5rem, 12vw, 7rem);
 	}
@@ -187,12 +328,10 @@ import Layout from "../Layouts/layout.astro";
 		border-radius: 8px;
 		font-size: 1.1rem;
 		font-weight: 600;
-		transition: transform 0.2s, box-shadow 0.2s;
 	}
 
 	.hero-cta:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(8, 178, 227, 0.3);
 	}
 
 	.hero-visual {
@@ -202,9 +341,60 @@ import Layout from "../Layouts/layout.astro";
 		z-index: 0;
 	}
 
+	:global(body) {
+		background-image: radial-gradient(circle, rgba(8, 178, 227, 0.5) 1px, transparent 1px);
+		background-size: 25px 25px;
+	}
+
+	@media (max-width: 900px) {
+		#hero {
+			flex-direction: column;
+			justify-content: center;
+			gap: 3rem;
+		}
+
+		.hero-software,
+		.hero-hardware {
+			position: relative;
+			height: auto;
+			min-height: 200px;
+			flex: none;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.software-item,
+		.hardware-item {
+			position: relative !important;
+			top: auto !important;
+			left: auto !important;
+			right: auto !important;
+			bottom: auto !important;
+			margin: 0.5rem;
+		}
+
+		.arrow-svg {
+			display: none;
+		}
+	}
+
 	@media (max-width: 600px) {
 		.hc-flag {
 			width: 100px;
+		}
+
+		#hero {
+			padding: 2rem 1rem;
+		}
+
+		#hero p {
+			font-size: 1rem;
+		}
+
+		#hero h1 {
+			font-size: clamp(2.5rem, 8vw, 4rem);
 		}
 	}
 </style>
