@@ -33,7 +33,7 @@ import Layout from "../Layouts/layout.astro";
 			</svg>
 
 			<h1 class="blue">Output</h1>
-			<p>Build a website that controls real-world hardware and get prizes like RPi Zero 2W, LED matrix, stickers & more!</p>
+			<p>Build a website that controls real-world hardware and we'll send you parts like RPi Zero 2Ws, LED matrices, stickers & more to make it happen!</p>
 			<a href="#about" class="hero-cta">Get Started →</a>
 		</div>
 
@@ -53,31 +53,31 @@ import Layout from "../Layouts/layout.astro";
 	<section id="about">
 		<h2 class="red">What is Output?</h2>
 		<p>Output is a You Ship We Ship where You build a website that interacts with real-world hardware. We send you the hardware to make it work.</p>
-		<p><strong>Digital → Physical:</strong> Your website sends commands to a Raspberry Pi, which controls LEDs, printers, lights, motors — anything you can imagine!</p>
+		<p><strong>Digital → Physical:</strong> Your website sends commands to a Raspberry Pi, which controls LEDs, printers, lights, motors, anything you can imagine!</p>
 	</section>
 
 	<section id="steps">
 		<h2 class="green">How to Build</h2>
 		<div class="steps">
 
-			<div class="step">
+			<div class="step-card">
 				<h3>1. Plan Your Project</h3>
 				<p>What will your website control? A printer? LED matrix? Something custom?</p>
 			</div>
 
-			<div class="step">
+			<div class="step-card">
 				<h3>2. Build Your Website</h3>
 				<p>Create a website that controls your hardware safely and let people interact with your creation from anywhere in the world.</p>
 			</div>
 
-			<div class="step">
+			<div class="step-card">
 				<h3>3. Test & Submit</h3>
 				<p>Get it working, then submit your project for review!</p>
 			</div>
 
-			<div class="step">
+			<div class="step-card">
 				<h3>4. Get Your Hardware</h3>
-				<p>Once approved, we'll send you a RPi Zero 2W, LED matrix, stickers, and more!</p>
+				<p>Once approved, we'll send you the hardware your project needs like a RPi Zero 2W, LED matrix, stickers & more!</p>
 			</div>
 		</div>
 	</section>
@@ -94,39 +94,34 @@ import Layout from "../Layouts/layout.astro";
 	</section>
 
 	<section id="faq">
-		<h2 class="purple">Questions?</h2>
-		<details class="">
+		<h2 class="purple">FAQ</h2>
+		<details class="faq-item">
 			<summary class="prevent-select">Q: Who can participate?</summary>
-			<p>A: Anyone 13-18 years old!</p>
+			<p>A: Any teenager between 13 and 18 years old, anywhere in the world!</p>
 		</details>
 
-		<details>
+		<details class="faq-item">
 			<summary class="prevent-select">Q: Is this free?</summary>
-			<p>A: Yes this program is being run by <a href="https://hackclub.com">Hack Club</a>, a nonprofit that makes programs by teenagers for teenagers. </p>
+			<p>A: Completely free! This program is run by <a href="https://hackclub.com">Hack Club</a>, a nonprofit that builds programs by teenagers, for teenagers.</p>
 		</details>
 
-		<details>
+		<details class="faq-item">
 			<summary class="prevent-select">Q: What hardware do I need to start?</summary>
-			<p>A: You just need a computer and internet. We'll send you the RPi, LED matrix, stickers, and more after your project is approved!</p>
+			<p>A: Just a computer and internet access. You build and test your website first, and once approved we ship you the hardware your project needs like a RPi Zero 2W, LED matrix, stickers & more.</p>
 		</details>
 
-		<details>
-			<summary class="prevent-select">Q: What if I'm stuck?</summary>
-			<p>A: Join the Hack Club Slack and ask in the Output channel. We're here to help!</p>
-		</details>
-
-		<details>
+		<details class="faq-item">
 			<summary class="prevent-select">Q: Can I use any programming language?</summary>
-			<p>A: Yes! Any language that can communicate with your hardware works — Python, JavaScript, Go, anything</p>
+			<p>A: Yes! Python, JavaScript, Go, Rust... any language that can talk to hardware works. Use whatever you want.</p>
 		</details>
 
 		<h3 style="margin-top: 2rem;">Need more help?</h3>
-		<p><strong>Join the Hack Club Slack:</strong> <a href="https://hackclub.enterprise.slack.com/archives/C0AMRN954BD" target="_blank">join.slack.com</a></p>
-		<p>Ask questions in the <strong>#output</strong> channel!</p>
+		<p>Join the <a href="https://hackclub.enterprise.slack.com/archives/C0AMRN954BD" target="_blank">Hack Club Slack</a> and ask in the <strong>#output</strong> channel!</p>
 	</section>
 
 	<section id="submit">
-		<h2 class="yellow">Ready? Submit Your Project</h2>
+		<h2 class="yellow">Submit Your Project</h2>
+		<p><strong>Submissions are currently closed, opening soon!</strong></p>
 	</section>
 
 	<hr>
@@ -136,6 +131,11 @@ import Layout from "../Layouts/layout.astro";
 </Layout>
 
 <style>
+
+	hr {
+		border: 1px solid #08B2E3;
+	}
+
 	.prevent-select {
 		-webkit-user-select: none;
 		-ms-user-select: none;
@@ -328,10 +328,12 @@ import Layout from "../Layouts/layout.astro";
 		border-radius: 8px;
 		font-size: 1.1rem;
 		font-weight: 600;
+
+		transition: transform 0.2s ease;
 	}
 
 	.hero-cta:hover {
-		transform: translateY(-2px);
+		transform: rotate(5deg) scale(1.1);
 	}
 
 	.hero-visual {
@@ -350,19 +352,22 @@ import Layout from "../Layouts/layout.astro";
 		#hero {
 			flex-direction: column;
 			justify-content: center;
-			gap: 3rem;
+			gap: 1.5rem;
+			min-height: auto;
+			padding: 2rem 1rem;
 		}
 
 		.hero-software,
 		.hero-hardware {
 			position: relative;
 			height: auto;
-			min-height: 200px;
+			min-height: 150px;
 			flex: none;
 			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			flex-wrap: wrap;
 		}
 
 		.software-item,
@@ -380,6 +385,95 @@ import Layout from "../Layouts/layout.astro";
 		}
 	}
 
+	#steps {
+		padding: 2rem 0;
+	}
+
+	.steps {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		margin-top: 2rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.step-card {
+		background: #ffffff;
+		border: 1px solid #e0e0e0;
+		border-left: 4px solid #08B2E3;
+		padding: 2rem;
+		border-radius: 8px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.step-card:nth-child(2) {
+		border-left-color: #EE6352;
+	}
+
+	.step-card:nth-child(3) {
+		border-left-color: #57A773;
+	}
+
+	.step-card:nth-child(4) {
+		border-left-color: #FF88E7;
+	}
+
+	.faq-item {
+		background: #ffffff;
+		border: 1px solid #e0e0e0;
+		border-left: 4px solid #08B2E3;
+		padding: 1.5ch;
+		border-radius: 8px;
+		margin-bottom: 1ch;
+		display: block;
+	}
+
+	.faq-item:nth-child(3) {
+		border-left-color: #EE6352;
+	}
+
+	.faq-item:nth-child(4) {
+		border-left-color: #57A773;
+	}
+
+	.faq-item:nth-child(5) {
+		border-left-color: #FF88E7;
+	}
+
+	.faq-item:nth-child(6) {
+		border-left-color: #FFC300;
+	}
+
+	.faq-item summary {
+		cursor: pointer;
+		font-weight: 600;
+	}
+
+	.faq-item p {
+		margin: 1rem 0 0 0;
+	}
+
+	.step-card h3 {
+		margin: 0 0 0.75rem 0;
+	}
+
+	.step-card p {
+		margin: 0;
+		flex-grow: 1;
+	}
+
+	.example-project h3 {
+		margin: 0 0 0.75rem 0;
+	}
+
+	.example-project p:last-child {
+		margin: 0;
+	}
+
 	@media (max-width: 600px) {
 		.hc-flag {
 			width: 100px;
@@ -395,6 +489,11 @@ import Layout from "../Layouts/layout.astro";
 
 		#hero h1 {
 			font-size: clamp(2.5rem, 8vw, 4rem);
+		}
+
+		.steps {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
 		}
 	}
 </style>
