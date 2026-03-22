@@ -83,12 +83,22 @@ import Layout from "../Layouts/layout.astro";
 	</section>
 
 	<section id="example">
-		<h2 class="pink">See It In Action</h2>
-		<div class="example-showcase">
-			<div class="example-project">
+		<h2 class="pink">Cool projects</h2>
+		<div class="example-cards">
+			<div class="example-card">
 				<h3>print.lukasreis.com</h3>
 				<p>Leave a message on the website → it gets printed to a physical printer!</p>
 				<p><a target="_blank" href="https://print.lukasreis.com">Try it →</a></p>
+			</div>
+			<div class="example-card">
+				<h3>CompilerFax</h3>
+				<p>Fax your C code to a Raspberry Pi → it compiles it and faxes back the result!</p>
+				<p><a target="_blank" href="https://github.com/lexbailey/compilerfax">View project →</a></p>
+			</div>
+			<div class="example-card">
+				<h3>inkday</h3>
+				<p>Upload images via a website calendar → they show up on a physical e-ink display each day!</p>
+				<p><a target="_blank" href="https://github.com/jflessau/inkday">View project →</a></p>
 			</div>
 		</div>
 	</section>
@@ -310,6 +320,7 @@ import Layout from "../Layouts/layout.astro";
 	}
 
 	#hero h1 {
+		font-family: 'Bungee', cursive;
 		font-size: clamp(4.5rem, 12vw, 7rem);
 	}
 
@@ -349,6 +360,11 @@ import Layout from "../Layouts/layout.astro";
 	}
 
 	@media (max-width: 900px) {
+		.software-item-1,
+		.hardware-item:nth-child(3) {
+			display: none;
+		}
+
 		#hero {
 			flex-direction: column;
 			justify-content: center;
@@ -402,7 +418,7 @@ import Layout from "../Layouts/layout.astro";
 	.step-card {
 		background: #ffffff;
 		border: 1px solid #e0e0e0;
-		border-left: 4px solid #08B2E3;
+		border-left: 4px solid #57A773;
 		padding: 2rem;
 		border-radius: 8px;
 		height: 100%;
@@ -410,42 +426,14 @@ import Layout from "../Layouts/layout.astro";
 		flex-direction: column;
 	}
 
-	.step-card:nth-child(2) {
-		border-left-color: #EE6352;
-	}
-
-	.step-card:nth-child(3) {
-		border-left-color: #57A773;
-	}
-
-	.step-card:nth-child(4) {
-		border-left-color: #FF88E7;
-	}
-
 	.faq-item {
 		background: #ffffff;
 		border: 1px solid #e0e0e0;
-		border-left: 4px solid #08B2E3;
+		border-left: 4px solid #7862BA;
 		padding: 1.5ch;
 		border-radius: 8px;
 		margin-bottom: 1ch;
 		display: block;
-	}
-
-	.faq-item:nth-child(3) {
-		border-left-color: #EE6352;
-	}
-
-	.faq-item:nth-child(4) {
-		border-left-color: #57A773;
-	}
-
-	.faq-item:nth-child(5) {
-		border-left-color: #FF88E7;
-	}
-
-	.faq-item:nth-child(6) {
-		border-left-color: #FFC300;
 	}
 
 	.faq-item summary {
@@ -466,17 +454,42 @@ import Layout from "../Layouts/layout.astro";
 		flex-grow: 1;
 	}
 
-	.example-project h3 {
+	.example-cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.example-card {
+		background: #ffffff;
+		border: 1px solid #e0e0e0;
+		border-left: 4px solid #FF88E7;
+		padding: 2rem;
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.example-card h3 {
 		margin: 0 0 0.75rem 0;
 	}
 
-	.example-project p:last-child {
+	.example-card p {
+		margin: 0 0 0.75rem 0;
+	}
+
+	.example-card p:nth-child(2) {
+		flex-grow: 1;
+	}
+
+	.example-card p:last-child {
 		margin: 0;
 	}
 
 	@media (max-width: 600px) {
 		.hc-flag {
-			width: 100px;
+			display: none;
 		}
 
 		#hero {
@@ -494,6 +507,10 @@ import Layout from "../Layouts/layout.astro";
 		.steps {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
+		}
+
+		.example-cards {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
